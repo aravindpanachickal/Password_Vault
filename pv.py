@@ -13,6 +13,10 @@ root.geometry('+850+1')
 #adding title
 root.title("Passowrd Vault")
 
+#inserting icon to the window
+photo = tk.PhotoImage(file = "icon.png")
+root.iconphoto(True, photo)
+
 #GUI update
 root.resizable(False, False)
 root.mainloop()
