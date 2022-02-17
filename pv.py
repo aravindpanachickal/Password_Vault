@@ -7,7 +7,12 @@
 import tkinter as tk
 
 #initialising GUI
-root = tk.TK()
+root = tk.Tk()
+#positioning the window on the screen
 root.geometry('+850+1')
+#adding title
 root.title("Passowrd Vault")
 
+#GUI update
+root.resizable(False, False)
+root.mainloop()
