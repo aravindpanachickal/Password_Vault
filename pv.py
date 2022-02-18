@@ -38,6 +38,11 @@ username TEXT NOT NULL,
 password TEXT NOT NULL);
 """)
 
+#variable to store masterpin
+mpin = 0
+#variable to count chances
+chance = 0
+
 #clearing the widgets
 def screen_clear():
 	for widget in root.winfo_children():
@@ -53,7 +58,7 @@ def vault():
 	masterPin = tk.Entry(justify="center")
 	masterPin.grid(column=0, row=1)
 
-	confirmButton_1 = tk.Button(font=('courier'), text='Confirm Pin', command=lambda:condition_check(masterPin.get()))
+	confirmButton_1 = tk.Button(font=('courier'), text='Confirm Pin', command=lambda:return_value(masterPin.get()))
 	confirmButton_1.grid(column=0, row=2)
 
 	btn0 = tk.Button(font=('courier'), text=0, command=lambda:masterPin.insert(len(masterPin.get()), 0))
@@ -81,11 +86,21 @@ def vault():
 	directions_2 = tk.Label(font=('courier'), text="")
 	directions_2.grid(column=0, row=4)
 
-	def condition_check(mpin):
-		print("authentic")
+	#incrementing count
+	global chance  
+	chance = chance + 1
+	
+	def return_value(val):
+		global mpin
+		mpin = val
+		print_val()
+
 
 
 vault()
+
+def print_val():
+	print(mpin)
 #GUI update
 root.resizable(False, False)
 root.mainloop()
